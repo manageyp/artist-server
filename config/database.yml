@@ -11,15 +11,15 @@ default: &default
 # Development
 development:
   <<: *default
-  database: tours_dev
+  database: artists_dev
 
 
 # Test
 test:
   <<: *default
-  database: tours_test
+  database: artists_test
 
 
 # Production
   <<: *default
-  database: tours_pd
+  database: artists_pd
