@@ -1,0 +1,25 @@
+# Default config
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  timeout: 5000
+  username: root
+  password: 'mysql'
+
+
+# Development
+development:
+  <<: *default
+  database: tours_dev
+
+
+# Test
+test:
+  <<: *default
+  database: tours_test
+
+
+# Production
+  <<: *default
+  database: tours_pd
