@@ -1,0 +1,23 @@
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" rel="home" href="#" title="">
+        <img class="navbar-brand-img" src="/assets/meiya_logo.png">
+      </a>
+      <a class="navbar-brand" href="/">美丫 | 化妆师管理后台</a>
+    </div>
+    <% unless @home_page %>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="navbar-brand" rel="home" href="#" title="">
+              <img style="max-width: 50%;" src="/assets/r5.jpg">
+            </a>
+          </li>
+          <li><a href="/artists" target="_blank">Linda妞</a></li>
+          <li><a href="/users/logout">退出登录</a></li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
