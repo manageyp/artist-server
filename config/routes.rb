@@ -1,4 +1,31 @@
 Rails.application.routes.draw do
+  root 'users#login'
+
+  resources :users do
+    collection do
+      get 'login'
+      get 'logout'
+      get 'register'
+      get 'forget_password'
+
+      post 'do_login'
+      post 'do_register'
+      post 'do_forget_password'
+      post 'reset_password'
+      post 'send_captcha'
+    end
+  end
+
+  resources :artists
+
+  resources :homes do
+    collection do
+      get 'about'
+      get 'terms'
+      get 'contact'
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
