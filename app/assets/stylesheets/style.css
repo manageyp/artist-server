@@ -1,12 +1,83 @@
+.has-success {
+  color: #3c763d;
+  border-color: #3c763d;
+}
 
-.navbar-brand-img {
-    max-width: 50%;
+.has-error {
+  color: #a94442;
+  border-color: #a94442;
+}
+
+.meiya-container {
+  padding-top: 85px;
+}
+
+.meiya-text {
+  width: 300px;
+}
+
+.meiya-form-control-feedback {
+  position: absolute;
+  top: 25px;
+  left: 310px;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+
+.meiya-captcha {
+  width: 180px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
 .navbar-brand-img {
     max-width: 50%;
 }
 
+.navbar-brand-img {
+    max-width: 50%;
+}
+
+/* Layout footer */
+.footer {
+  padding: 40px 0 50px;
+  text-align: center;
+  background: #333;
+  color: #9fa0a0;
+  margin: 30px 0 0
+}
+.footer p {
+  color: #9fa0a0;
+  line-height: 1.8
+}
+.footer p.copy {
+  font-size: 14px
+}
+.footer a {
+  color: #9fa0a0
+}
+.footer i.em2 {
+  width: 1.5em;
+  display: inline-block;
+  zoom: 1;
+  font-style: normal;
+}
 
 /* Hide for mobile, show later */
 .sidebar {
