@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def send_captcha
-
+    render text: "success" and return
   end
 
   private

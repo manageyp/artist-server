@@ -42,3 +42,16 @@ function passwordValidation(element_id){
     changeFormStatus(this, (password.length >= 6 && password.length <= 16 && password_format.test(password)));
   });
 }
+
+/* Time down counter
+*/
+var counter = 59;
+function countDown(){
+  $("#sendCaptcha").html('重新获取('+counter+')');
+  counter --;
+  if(counter < 0){
+    $("#sendCaptcha").removeAttr("disabled").html('立即获取');
+  }else{
+    setTimeout(countDown, 1000);
+  }
+}

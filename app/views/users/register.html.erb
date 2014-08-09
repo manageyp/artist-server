@@ -8,20 +8,22 @@
   <div class="form-group">
     <label for="inputMobile" class="col-sm-2 control-label">用户名：</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control meiya-text" id="inputMobile" placeholder="手机号" required="required"  maxlength="11">
+      <input type="text" class="form-control meiya-text" id="inputMobile" placeholder="手机号" required="required" maxlength="11">
+      <i class="meiya-form-control-feedback glyphicon" style="top: 0px; z-index: 100; display: block;"></i>
     </div>
   </div>
   <div class="form-group">
     <label for="inputPassword" class="col-sm-2 control-label">密码：</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control meiya-text" id="inputPassword" placeholder="密码" required="required">
+      <input type="password" class="form-control meiya-text" id="inputPassword" placeholder="密码" required="required" maxlength="16">
+      <i class="meiya-form-control-feedback glyphicon" style="top: 0px; z-index: 100; display: block;"></i>
     </div>
   </div>
   <div class="form-group">
     <label for="inputCaptcha" class="col-sm-2 control-label">验证码：</label>
     <div class="col-sm-10">
-      <input type="password" class="meiya-captcha" id="inputCaptcha" placeholder="验证码" required="required" maxlength="4">&nbsp;&nbsp;&nbsp;&nbsp;
-      <button type="button" class="btn btn-danger">立即获取</button>
+      <input type="password" class="meiya-captcha" id="inputCaptcha" placeholder="验证码" required="required" maxlength="4">&nbsp;&nbsp;&nbsp;
+      <button type="button" id="sendCaptcha" class="btn btn-danger">立即获取</button>
     </div>
   </div>
   <div class="form-group">
@@ -32,7 +34,41 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-danger meiya-text">化妆师注册</button>
+      <button type="submit" id="submitBtn" class="btn btn-danger meiya-text">化妆师注册</button>
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+    //<![CDATA[
+    $(function(){
+      // Validate mobile
+      mobileValidation('inputMobile');
+
+      // Validate password
+      passwordValidation('inputPassword');
+
+      // Click to send captcha
+      $("#sendCaptcha").off('click').on('click', function(){
+        var mobile = $('#inputMobile').val();
+        $(this).attr("disabled", "disabled");
+
+        $.ajax({
+          url:"/users/send_captcha",
+          dataType:'text',
+          type:'POST',
+          data:{"mobile":mobile},
+          success: function(text){
+            countDown();
+          },
+          error:function(response){
+            var error_message = (response.status == 403) ? response.responseText : "程序处理异常，请稍后重试";
+            $("#sendCaptcha").removeAttr("disabled");
+            alert(error_message);
+          }
+        });
+      });
+
+    });
+    //]]>
+</script>
