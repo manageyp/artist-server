@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require jquery-1.9.1.min
 //= require bootstrap.min
+//= require util
