@@ -1,3 +1,10 @@
+.meiya-alert {
+  width: 300px;
+  margin-left: 160px;
+  margin-bottom: 0;
+  padding: 10px;
+}
+
 .has-success {
   color: #3c763d;
   border-color: #3c763d;
@@ -85,7 +92,6 @@
 }
 @media (min-width: 768px) {
   .sidebar {
-    position: fixed;
     top: 51px;
     bottom: 0;
     left: 0;

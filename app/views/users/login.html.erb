@@ -1,4 +1,11 @@
 <%= form_tag("/users/do_login", method: "post", class: "form-horizontal", role: "form") do %>
+
+  <% if @message %>
+    <div class="form-group">
+      <div class="alert alert-danger meiya-alert" role="alert"><%= @message %></div>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <label for="inputPhone" class="col-sm-2 control-label"></label>
     <div class="col-sm-10">

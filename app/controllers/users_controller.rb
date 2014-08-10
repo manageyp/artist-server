@@ -5,6 +5,13 @@ class UsersController < ApplicationController
   end
 
   def do_login
+    # "username"=>"admin", "password"=>"[FILTERED]"
+    user, @message = UserService.login(params)
+    if user
+      redirect_to artists_path and return
+    else
+      render action: 'login' and return
+    end
   end
 
   def logout
@@ -14,7 +21,14 @@ class UsersController < ApplicationController
   end
 
   def do_register
-
+    # "mobile"=>"admin", "password"=>"[FILTERED]",
+    # "captcha"=>"123", "user_terms"=>"on"
+    user, @message = UserService.register(params)
+    if user
+      redirect_to artists_path and return
+    else
+      render action: 'register' and return
+    end
   end
 
   def forget_password
@@ -24,7 +38,6 @@ class UsersController < ApplicationController
   end
 
   def reset_password
-
   end
 
   def send_captcha
