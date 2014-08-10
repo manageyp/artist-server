@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807080605) do
+ActiveRecord::Schema.define(version: 20140810195801) do
 
-  create_table "artists", force: true do |t|
+  create_table "artist_profiles", force: true do |t|
+    t.integer  "artist_id"
     t.string   "nickname",                                         null: false
     t.integer  "sex",                                  default: 0
-    t.string   "telephone",                                        null: false
     t.string   "email"
     t.date     "birthday",                                         null: false
     t.string   "begin_year",                                       null: false
@@ -25,13 +25,22 @@ ActiveRecord::Schema.define(version: 20140807080605) do
     t.string   "address",                                          null: false
     t.decimal  "latitude",    precision: 10, scale: 6
     t.decimal  "longitude",   precision: 10, scale: 6
-    t.integer  "status",                               default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "artists", ["email"], name: "index_artists_on_email", unique: true, using: :btree
-  add_index "artists", ["nickname"], name: "index_artists_on_nickname", unique: true, using: :btree
-  add_index "artists", ["telephone"], name: "index_artists_on_telephone", unique: true, using: :btree
+  add_index "artist_profiles", ["artist_id"], name: "index_artist_profiles_on_artist_id", unique: true, using: :btree
+  add_index "artist_profiles", ["email"], name: "index_artist_profiles_on_email", unique: true, using: :btree
+  add_index "artist_profiles", ["nickname"], name: "index_artist_profiles_on_nickname", unique: true, using: :btree
+
+  create_table "artists", force: true do |t|
+    t.string   "password",               null: false
+    t.string   "mobile",                 null: false
+    t.integer  "status",     default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "artists", ["mobile"], name: "index_artists_on_mobile", unique: true, using: :btree
 
 end

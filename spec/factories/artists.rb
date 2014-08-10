@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :artist do
     nickname "MyString"
     sex 1
-    telephone "MyString"
+    mobile "MyString"
     email "MyString"
     birthday "2014-08-07"
   end
