@@ -7,7 +7,6 @@ class CreateArtistProfiles < ActiveRecord::Migration
       t.string :email
       t.date :birthday, null: false
       t.string :begin_year, null: false
-      t.string :avatar
       t.text :description
       t.string :address, null: false
       t.decimal :latitude, precision: 10, scale: 6

@@ -1,5 +1,6 @@
 class Artist < ActiveRecord::Base
   has_one :artist_profile
+  has_one :artist_avatar
 
   class << self
 

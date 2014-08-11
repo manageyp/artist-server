@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810195801) do
+ActiveRecord::Schema.define(version: 20140811170301) do
+
+  create_table "artist_avatars", force: true do |t|
+    t.integer  "artist_id"
+    t.string   "origin"
+    t.string   "small"
+    t.string   "medium"
+    t.string   "big"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "artist_avatars", ["artist_id"], name: "index_artist_avatars_on_artist_id", unique: true, using: :btree
 
   create_table "artist_profiles", force: true do |t|
     t.integer  "artist_id"
@@ -20,7 +32,6 @@ ActiveRecord::Schema.define(version: 20140810195801) do
     t.string   "email"
     t.date     "birthday",                                         null: false
     t.string   "begin_year",                                       null: false
-    t.string   "avatar"
     t.text     "description"
     t.string   "address",                                          null: false
     t.decimal  "latitude",    precision: 10, scale: 6
