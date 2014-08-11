@@ -9,7 +9,7 @@ gem 'mysql2', '0.3.16'
 gem 'uglifier', '>= 1.3.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
