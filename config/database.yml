@@ -21,5 +21,8 @@ test:
 
 
 # Production
+production:
   <<: *default
+  username: root
+  password: 'meiya'
   database: artists_pd
