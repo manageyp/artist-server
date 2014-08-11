@@ -46,10 +46,7 @@
       mobileValidation('inputMobile');
 
       // Validate password
-      $('#inputPassword').keyup(function(){
-        var password = $(this).val();
-        changeFormStatus(this, (password.length > 0));
-      });
+      passwordValidation('inputPassword');
     });
     //]]>
 </script>
