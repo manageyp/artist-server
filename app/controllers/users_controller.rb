@@ -5,10 +5,11 @@ class UsersController < ApplicationController
   end
 
   def do_login
-    # "username"=>"admin", "password"=>"[FILTERED]"
-    user, @message = UserService.login(params)
-    if user
-      session[:artist_id] = user.id
+    # "username"=>"15026612137", "password"=>"[FILTERED]"
+    result, @message = MeiyaApiService.artist_login(params[:username],
+        params[:password])
+    if result
+      session[:artist_id] = result
       redirect_to artists_path and return
     else
       render action: 'login' and return
@@ -23,11 +24,12 @@ class UsersController < ApplicationController
   end
 
   def do_register
-    # "mobile"=>"admin", "password"=>"[FILTERED]",
-    # "captcha"=>"123", "user_terms"=>"on"
-    user, @message = UserService.register(params)
-    if user
-      session[:artist_id] = user.id
+    # "mobile"=>"15026612137", "password"=>"[FILTERED]",
+    # "captcha"=>"1232", "user_terms"=>"on"
+    result, @message = MeiyaApiService.artist_register(params[:mobile],
+      params[:password], params[:captcha])
+    if result
+      session[:artist_id] = result
       redirect_to artists_path and return
     else
       render action: 'register' and return
@@ -44,7 +46,13 @@ class UsersController < ApplicationController
   end
 
   def send_captcha
-    render text: "success" and return
+    # "mobile"=>"15026612137"
+    result, @message = MeiyaApiService.captcha_send(params[:mobile])
+    if result
+      render text: "success" and return
+    else
+      render text: @message, status: 403 and return
+    end
   end
 
   private
