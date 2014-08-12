@@ -1,1 +1,29 @@
-化妆师个人资料
+<link rel="stylesheet" type="text/css" href="/assets/imgareaselect-default.css" />
+
+<h2 id="glyphicons-glyphs">个人资料</h2>
+
+<% if @artist_id %>
+    <p>
+      <b>化妆师 ID:</b>
+      <%= @artist_id %>
+    </p>
+
+
+    <button class="btn btn-success" data-toggle="modal" data-target="#myModal">上传头像</button>
+
+    <%= render 'avatar' %>
+
+<% end %>
+
+<script type="text/javascript" src="/assets/jquery.imgareaselect.js"></script>
+<script type="text/javascript" src="/assets/image_crop.js"></script>
+
+<script type="text/javascript">
+    //<![CDATA[
+    $(function(){
+      $("#inputImage").change(function(){
+        loadAndPreviewAvatar(this);
+      });
+    });
+    //]]>
+</script>

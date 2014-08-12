@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :artists
+  resources :artists do
+    collection do
+      post 'upload_avatar'
+    end
+  end
 
   resources :homes do
     collection do

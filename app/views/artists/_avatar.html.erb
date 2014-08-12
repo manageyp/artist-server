@@ -1,0 +1,33 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog meiya-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+        <h4 class="modal-title" id="myModalLabel">头像更改</h4>
+      </div>
+      <div class="modal-body">
+        <p>仅支持 JPG、PNG、BMP，文件小于 1MB。</p>
+        <%= form_tag("/artists/upload_avatar", method: "post", class: "form-horizontal", role: "form", multipart: true) do %>
+          <%= file_field_tag 'image', id: 'inputImage'  %>
+        <% end %>
+      </div>
+      <div class="avatar-panel">
+        <div class="avatar-show">
+          <div id="uploaded_div">
+            <img id="uploaded_big" width="300" height="300" src="/assets/avatar_default.jpg" >
+          </div>
+        </div>
+        <div class="avatar-preview">
+          <div id="preview">
+            <img id="uploaded_preview" src="/assets/avatar_default.jpg" >
+          </div>
+        </div>
+      </div>
+      <div class="avatar-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+
