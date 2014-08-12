@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     # "username"=>"admin", "password"=>"[FILTERED]"
     user, @message = UserService.login(params)
     if user
+      session[:artist_id] = user.id
       redirect_to artists_path and return
     else
       render action: 'login' and return
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def logout
+    session[:artist_id] = nil
   end
 
   def register
@@ -25,6 +27,7 @@ class UsersController < ApplicationController
     # "captcha"=>"123", "user_terms"=>"on"
     user, @message = UserService.register(params)
     if user
+      session[:artist_id] = user.id
       redirect_to artists_path and return
     else
       render action: 'register' and return

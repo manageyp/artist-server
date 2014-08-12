@@ -1,6 +1,7 @@
 class ArtistsController < ApplicationController
-  def index
+  before_filter :auth_login
 
+  def index
   end
 
 end
