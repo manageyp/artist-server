@@ -1,6 +1,10 @@
 module ApplicationHelper
 
   def container_css
-    return 'col-md-10 col-md-offset-2' unless @home_page
+    if @home_page
+      'col-sm-9 col-sm-offset-3 main'
+    else
+      'col-sm-9 main'
+    end
   end
 end
