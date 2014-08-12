@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def auth_login
     if session[:artist_id].present?
-      @artist = Artist.where(id: session[:artist_id]).first
+      @artist_id = session[:artist_id]
     else
       redirect_to users_login_path
     end

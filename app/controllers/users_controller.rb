@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     result, @message = MeiyaApiService.artist_login(params[:username],
         params[:password])
     if result
-      session[:artist_id] = result
+      session[:artist_id] = result["id"]
       redirect_to artists_path and return
     else
       render action: 'login' and return
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     result, @message = MeiyaApiService.artist_register(params[:mobile],
       params[:password], params[:captcha])
     if result
-      session[:artist_id] = result
+      session[:artist_id] = result["id"]
       redirect_to artists_path and return
     else
       render action: 'register' and return
