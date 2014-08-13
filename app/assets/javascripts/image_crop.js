@@ -11,15 +11,28 @@ var maxWidth=300; // max width for the image selection
 var maxHeight=300; // max height for the image selection
 var minHeight=180; // min height for the image selection
 var minWidth=180; // min width for the image selection
-var sizefactor=3; // factor for the real size of the uploaded image
-var bigWidthPrev=130; //
-var bigHeightPrev=130;
+var sizefactor=1; // factor for the real size of the uploaded image
+var bigWidthPrev=300; //
+var bigHeightPrev=300;
 var selWidth=0;
 var selHeight=0;
+var previewWidth = 130;
+var previewHeight = 130;
+
+
+function preview(img, selection) {
+    if (!selection.width || !selection.height)
+        return;
+    $('#preview').css({'width':previewWidth+'px','height':previewHeight+'px'});
+    selWidth=selection.width;
+    selHeight=selection.height;
+    var preview_left = selection.x1 + 50;
+    $('#preview img').css({'left':'-'+preview_left+'px','top':'-'+selection.y1+'px'});
+}
+
 
 function loadAndPreviewAvatar(input){
   if (input.files && input.files[0]) {
-
 
     var reader = new FileReader();
     reader.onload = function(e) {
@@ -27,12 +40,14 @@ function loadAndPreviewAvatar(input){
       var img = e.target.result;
 
       $('#uploaded_big').attr('src', img);
-      //$('#uploaded_preview').attr('src', e.target.result);
+      $('#uploaded_preview').attr('src', e.target.result);
 
       // set the preview image
-      $('#preview').css({width:selectionWidth+"px",height:selectionHeight+"px"}).show();
+
+      var preview_left = x1 + 50;
+      $('#preview').css({width:previewWidth+"px",height:previewHeight+"px"}).show();
       $('#preview').html('<img src="'+img+'" width="'+bigWidthPrev+'" height="'+bigHeightPrev+'" />');
-      $('#preview img').css({'left':'-'+x1+'px','top':'-'+y1+'px'});
+      $('#preview img').css({'left':'-'+preview_left+'px','top':'-'+y1+'px'});
 
       // set selection image
       //$('#uploaded_div').html('<img id="'+img_id+'" src="'+img+'" width="'+maxWidth+'" height="'+maxHeight+'" />');
@@ -46,7 +61,7 @@ function loadAndPreviewAvatar(input){
         x1:x1,y1:y1,x2:x2,y2:y2,
         handles: true,
         fadeSpeed:200,
-        resizeable:true,
+        resizeable:false,
         maxHeight:maxHeight,
         maxWidth:maxWidth,
         minHeight:minHeight,
@@ -58,11 +73,3 @@ function loadAndPreviewAvatar(input){
   }
 }
 
-function preview(img, selection) {
-    if (!selection.width || !selection.height)
-        return;
-    $('#preview').css({'width':selection.width+'px','height':selection.height+'px'});
-    selWidth=selection.width;
-    selHeight=selection.height;
-    $('#preview img').css({'left':'-'+selection.x1+'px','top':'-'+selection.y1+'px'});
-}

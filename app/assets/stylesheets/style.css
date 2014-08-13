@@ -20,11 +20,12 @@
   border: 1px solid #000000;
 }
 
-.avatar-preview {
-  width: 180px;
-  float: left;
-  padding-left: 50px;
-}
+/* Preview window */
+.previewWindow {float:left;padding:0 0 0 50px;}
+.previewWrapper {float:left;clear:left;}
+#preview {display:none;float:left;clear:both;position:relative;overflow:hidden;}
+#preview img {position:absolute;left:0;top:0;}
+
 
 .avatar-footer {
   padding: 15px;
