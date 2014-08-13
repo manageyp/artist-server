@@ -11,19 +11,21 @@
           <%= file_field_tag 'image', id: 'inputImage'  %>
         <% end %>
       </div>
-      <div class="avatar-panel">
-        <div class="avatar-show">
-          <div id="uploaded_div">
-            <img id="uploaded_big" width="300" height="300" src="/assets/avatar_default.jpg" >
-          </div>
-        </div>
 
-        <div class="previewWindow">
-          <div class="previewWrapper" style="width:300px;height:300px;">
-            <div id="preview"></div>
-          </div>
+      <div class="avatar-panel">
+        <div class="col-sm-7">
+            <div class="eg-wrapper">
+              <img id="uploadedImage" class="cropper" width="300" height="300" src="/assets/avatar_default.jpg">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="eg-preview clearfix">
+              <div class="preview preview-lg">
+              </div>
+            </div>
         </div>
       </div>
+
 
       <div class="avatar-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>

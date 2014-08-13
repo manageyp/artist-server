@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="/assets/imgareaselect-default.css" />
+<link rel="stylesheet" type="text/css" href="/assets/cropper/cropper.css" />
 
 <h2 id="glyphicons-glyphs">个人资料</h2>
 
@@ -15,15 +15,53 @@
 
 <% end %>
 
-<script type="text/javascript" src="/assets/jquery.imgareaselect.js"></script>
-<script type="text/javascript" src="/assets/image_crop.js"></script>
+<script type="text/javascript" src="/assets/cropper/cropper.js"></script>
 
-<script type="text/javascript">
-    //<![CDATA[
-    $(function(){
+
+<script>
+    $(function() {
+      var $cropper = $(".cropper"),
+          $dataX = $("#dataX"),
+          $dataY = $("#dataY"),
+          $dataH = $("#dataH"),
+          $dataW = $("#dataW"),
+          cropper;
+
+       $cropper.cropper({
+            aspectRatio: 1,
+            data: {
+                x: 10,
+                y: 10,
+                width: 180,
+                height: 180
+            },
+            preview: ".preview",
+            maxWidth: 300,
+            maxHeight: 300,
+            minWidth: 180,
+            minHeight: 180,
+            done: function(data) {
+                $dataX.val(data.x);
+                $dataY.val(data.y);
+                $dataH.val(data.height);
+                $dataW.val(data.width);
+            }
+            // autoCrop: false,
+            // dragCrop: false,
+            // modal: false,
+            // moveable: false,
+            // resizeable: false,
+        });
+
       $("#inputImage").change(function(){
-        loadAndPreviewAvatar(this);
+        if(this.files && this.files[0]){
+          var fileReader = new FileReader();
+          fileReader.readAsDataURL(this.files[0]);
+          fileReader.onload = function() {
+            $cropper.cropper("setImgSrc", this.result);
+          }
+        }
       });
+
     });
-    //]]>
 </script>
