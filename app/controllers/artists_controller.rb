@@ -4,4 +4,13 @@ class ArtistsController < ApplicationController
   def index
   end
 
+  def upload_avatar
+    avatar = params[:image]
+    xposition = params[:xposition]
+    yposition = params[:yposition]
+    avatar_width = params[:avatar_width]
+
+    render action: 'index'
+  end
+
 end

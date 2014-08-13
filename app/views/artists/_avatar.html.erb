@@ -7,8 +7,11 @@
       </div>
       <div class="modal-body">
         <p>仅支持 JPG、PNG、BMP，文件小于 1MB。</p>
-        <%= form_tag("/artists/upload_avatar", method: "post", class: "form-horizontal", role: "form", multipart: true) do %>
+        <%= form_tag("/artists/upload_avatar", method: "post", class: "form-horizontal", role: "form", multipart: true, id: 'avatar_form') do %>
           <%= file_field_tag 'image', id: 'inputImage'  %>
+          <%= hidden_field_tag 'xposition', id: 'xposition'  %>
+          <%= hidden_field_tag 'yposition', id: 'yposition'  %>
+          <%= hidden_field_tag 'avatar_width', id: 'avatar_width'  %>
         <% end %>
       </div>
 
@@ -29,7 +32,7 @@
 
       <div class="avatar-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary">保存</button>
+        <button type="button" id="saveAvatarBtn" class="btn btn-primary">保存</button>
       </div>
     </div>
   </div>
