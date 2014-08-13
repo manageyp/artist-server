@@ -27,40 +27,47 @@
           $dataW = $("#dataW"),
           cropper;
 
-       $cropper.cropper({
-            aspectRatio: 1,
-            data: {
-                x: 10,
-                y: 10,
-                width: 180,
-                height: 180
-            },
-            preview: ".preview",
-            maxWidth: 300,
-            maxHeight: 300,
-            minWidth: 180,
-            minHeight: 180,
-            done: function(data) {
-                $dataX.val(data.x);
-                $dataY.val(data.y);
-                $dataH.val(data.height);
-                $dataW.val(data.width);
-            }
-            // autoCrop: false,
-            // dragCrop: false,
-            // modal: false,
-            // moveable: false,
-            // resizeable: false,
-        });
-
       $("#inputImage").change(function(){
         if(this.files && this.files[0]){
           var fileReader = new FileReader();
           fileReader.readAsDataURL(this.files[0]);
           fileReader.onload = function() {
-            $cropper.cropper("setImgSrc", this.result);
+            $("#uploadedImage").attr('src', this.result);
+            //$cropper.cropper("setImgSrc", this.result);
+            $('.preview').show();
+            $('.defaultAvatarNotice').hide();
+
+             $cropper.cropper({
+                  aspectRatio: 1,
+                  data: {
+                      x: 10,
+                      y: 10,
+                      width: 180,
+                      height: 180
+                  },
+                  preview: ".preview",
+                  minWidth: 180,
+                  minHeight: 180,
+                  done: function(data) {
+                      $dataX.val(data.x);
+                      $dataY.val(data.y);
+                      $dataH.val(data.height);
+                      $dataW.val(data.width);
+                  }
+                  // autoCrop: false,
+                  // dragCrop: false,
+                  // modal: false,
+                  // moveable: false,
+                  // resizeable: false,
+              });
+
+
           }
         }
+      });
+
+      $("#saveAvatarBtn").click(function(){
+        $("#avatar_form").submit();
       });
 
     });
