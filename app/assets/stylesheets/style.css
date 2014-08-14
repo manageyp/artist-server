@@ -10,6 +10,12 @@
   padding-right: 48px;
 }
 
+.defaultPreviewNotice {
+  display: none;
+  color: red;
+  text-align: center;
+}
+
 .eg-container {
     padding-top: 15px;
     padding-bottom: 15px;
