@@ -57,6 +57,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_magick (3.8.0)
+      subexec (~> 0.2.1)
     minitest (5.3.5)
     multi_json (1.10.1)
     mysql2 (0.3.16)
@@ -112,6 +114,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    subexec (0.2.3)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -137,6 +140,7 @@ DEPENDENCIES
   jquery-rails
   kaminari (= 0.16.1)
   kaminari-bootstrap
+  mini_magick (= 3.8.0)
   mysql2 (= 0.3.16)
   puma (= 2.6.0)
   rails (= 4.1.2)

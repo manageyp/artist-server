@@ -30,6 +30,9 @@ gem 'kaminari-bootstrap'
 # Web server
 gem "puma", "2.6.0"
 
+# MiniMagick
+gem "mini_magick", '3.8.0'
+
 group :development, :test do
   gem "rspec-rails", '3.0.1'
   gem "factory_girl", '4.4.0'
