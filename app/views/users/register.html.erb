@@ -56,25 +56,7 @@
       passwordValidation('inputPassword');
 
       // Click to send captcha
-      $("#sendCaptcha").off('click').on('click', function(){
-        var mobile = $('#inputMobile').val();
-        $(this).attr("disabled", "disabled");
-
-        $.ajax({
-          url:"/users/send_captcha",
-          dataType:'text',
-          type:'POST',
-          data:{"mobile":mobile},
-          success: function(text){
-            countDown();
-          },
-          error:function(response){
-            var error_message = (response.status == 403) ? response.responseText : "程序处理异常，请稍后重试";
-            $("#sendCaptcha").removeAttr("disabled");
-            alert(error_message);
-          }
-        });
-      });
+      sendMobileCaptcha();
 
     });
     //]]>

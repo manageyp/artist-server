@@ -43,6 +43,17 @@ function passwordValidation(element_id){
   });
 }
 
+/* Confirm Password validation.
+*/
+function confirmPasswordValidation(password_id, element_id){
+  $('#'+element_id).keyup(function(){
+    var password = $("#"+password_id).val();
+    var confirm_password = $(this).val();
+    changeFormStatus(this, (password == confirm_password));
+  });
+}
+
+
 /* Time down counter
 */
 var counter = 59;
@@ -54,4 +65,27 @@ function countDown(){
   }else{
     setTimeout(countDown, 1000);
   }
+}
+
+
+function sendMobileCaptcha(){
+  $("#sendCaptcha").off('click').on('click', function(){
+    var mobile = $('#inputMobile').val();
+    $(this).attr("disabled", "disabled");
+
+    $.ajax({
+      url:"/users/send_captcha",
+      dataType:'text',
+      type:'POST',
+      data:{"mobile":mobile},
+      success: function(text){
+        countDown();
+      },
+      error:function(response){
+        var error_message = (response.status == 403) ? response.responseText : "程序处理异常，请稍后重试";
+        $("#sendCaptcha").removeAttr("disabled");
+        alert(error_message);
+      }
+    });
+  });
 }
