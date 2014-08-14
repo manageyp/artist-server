@@ -8,8 +8,15 @@
       <%= @artist_id %>
     </p>
 
+    <div class="control-group">
+      <div class="controls">
+        <% if @image_url %>
+          <%= image_tag(@image_url, alt: '头像', width: '130', height: '130') %>
+        <% end %>
+        <button class="btn btn-success avatar-button" data-toggle="modal" data-target="#myModal">更换头像</button>
+      </div>
+    </div>
 
-    <button class="btn btn-success" data-toggle="modal" data-target="#myModal">上传头像</button>
 
     <%= render 'avatar' %>
 
@@ -53,6 +60,9 @@
                       $dataY.val(data.y);
                       $dataH.val(data.height);
                       $dataW.val(data.width);
+                      $("#xposition").val(data.x);
+                      $("#yposition").val(data.y);
+                      $("#avatar_width").val(data.width);
                   }
                   // autoCrop: false,
                   // dragCrop: false,

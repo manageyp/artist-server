@@ -1,3 +1,8 @@
+.avatar-button {
+  display: block;
+  margin-top: 10px;
+}
+
 /* cropper style */
 .defaultAvatarNotice {
   color: red;

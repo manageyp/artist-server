@@ -9,9 +9,9 @@
         <p>仅支持 JPG、PNG、BMP，文件小于 1MB。</p>
         <%= form_tag("/artists/upload_avatar", method: "post", class: "form-horizontal", role: "form", multipart: true, id: 'avatar_form') do %>
           <%= file_field_tag 'image', id: 'inputImage'  %>
-          <%= hidden_field_tag 'xposition', id: 'xposition'  %>
-          <%= hidden_field_tag 'yposition', id: 'yposition'  %>
-          <%= hidden_field_tag 'avatar_width', id: 'avatar_width'  %>
+          <%= hidden_field_tag 'xposition', 10, {id: 'xposition'}  %>
+          <%= hidden_field_tag 'yposition', 10, {id: 'yposition'}  %>
+          <%= hidden_field_tag 'avatar_width', 180, {id: 'avatar_width'}  %>
         <% end %>
       </div>
 
