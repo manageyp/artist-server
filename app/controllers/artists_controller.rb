@@ -2,7 +2,14 @@ class ArtistsController < ApplicationController
   before_filter :auth_login
 
   def index
+    @artist_id = session[:artist_id]
     @image_url = session[:artist_avatar]
+    @qrcode_url = "/assets/qrcode.png"
+  end
+
+  def update
+    @artist_id = params[:id]
+    redirect_to action: 'index'
   end
 
   def upload_avatar

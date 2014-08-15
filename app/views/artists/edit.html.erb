@@ -1,0 +1,47 @@
+<h3>修改个人资料</h3>
+
+<%= form_tag("/artists/#{@artist_id}", method: "post") do %>
+  <input name="_method" type="hidden" value="patch">
+  <input name="utf8" type="hidden" value="✓">
+  <%= hidden_field_tag 'artist[id]', @artist_id  %>
+
+  <label class="control-label" for="image">*昵称：</label>
+  <%= text_field_tag 'artist[nick]', 'Linda妞', class: "meiya-form-gaptext" %><br />
+
+  <label class="control-label" for="image">*性别</label>
+  <%= text_field_tag 'artist[gender]', '15026612137', class: "meiya-form-gaptext" %><br />
+
+  <label class="control-label" for="image">*联系电话：</label>
+  <%= text_field_tag 'artist[telephone]', '15026612137', class: "meiya-form-gaptext" %><br />
+
+  <label class="control-label" for="image">邮箱地址：</label>
+  <%= text_field_tag 'artist[email]', 'meiya@meiya.me', class: "meiya-form-gaptext" %><br />
+
+  <label class="control-label" for="image">*地区：</label>
+  <%= text_field_tag 'artist[province]', '上海市' %>
+  <%= text_field_tag 'artist[city]', '上海市' %>
+  <%= text_field_tag 'artist[district]', '徐汇' %><br />
+
+  <label class="control-label" for="image">*详细地址：</label>
+  <%= text_field_tag 'artist[address]', 'Linda妞', class: "meiya-form-gaptext" %><br />
+
+  <label class="control-label" for="image">认证：</label>
+  <span><%= "未认证" %></span><br />
+
+  <label class="control-label" for="image">*生日：</label>
+  <%= text_field_tag 'artist[birthday]', '日期选择', class: "meiya-form-gaptext" %><br />
+
+  <label class="control-label" for="image">*从业时间：</label>
+  <%= text_field_tag 'artist[from]', '1985', class: "meiya-form-gaptext" %><br />
+
+  <label class="control-label" for="image">*个人介绍：</label>
+  <%= text_field_tag 'artist[remark]', '专业化妆师，欢迎朋友们联系我。', class: "meiya-form-gaptext" %><br />
+
+  <br /><br />
+  <div class="control-group">
+    <div class="controls">
+      <%= link_to '取消', artists_path, class: "btn btn-primary" %>&nbsp;&nbsp;
+      <button type="submit" class="btn btn-success">保存</button>
+    </div>
+  </div>
+<% end %>

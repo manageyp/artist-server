@@ -4,50 +4,12 @@
 
 <% if @artist_id %>
 
-    <div class="control-group">
+    <div class="control-group artist-info">
       <label class="control-label" for="image">化妆师 ID：</label>
-      <div class="controls">
-        <%= @artist_id %>
-      </div>
+      <span><%= @artist_id %></span>
     </div>
 
-    <div class="control-group">
-      <label class="control-label" for="image">*昵称：</label>
-      <div class="controls">
-        <%= "Linda妞" %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label class="control-label" for="image">*性别：</label>
-      <div class="controls">
-        <%= "女" %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label class="control-label" for="image">*联系电话：</label>
-      <div class="controls">
-        <%= "15026612137" %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label class="control-label" for="image">邮箱地址：</label>
-      <div class="controls">
-        <%= "meiya@meiya.me" %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label class="control-label" for="image">*地区：</label>
-      <div class="controls">
-        <%= "上海市，上海市，闵行区" %>
-      </div>
-    </div>
-
-
-    <div class="control-group">
+    <div class="control-group meiya-avatar-div">
       <div class="controls">
         <% if @image_url %>
           <%= image_tag(@image_url, alt: '头像', width: '130', height: '130') %>
@@ -56,9 +18,61 @@
       </div>
     </div>
 
-
     <%= render 'avatar' %>
 
+    <div class="control-group artist-info">
+      <label class="control-label" for="image">*昵称：</label>
+      <span><%= "Linda妞" %></span>
+    </div>
+
+
+    <div class="control-group artist-info">
+      <label class="control-label" for="image">*性别：</label>
+      <span><%= "女" %></span>
+    </div>
+
+    <div class="control-group artist-info">
+      <label class="control-label" for="image">*联系电话：</label>
+      <span><%= "15026612137" %></span>
+    </div>
+
+    <div class="control-group artist-info">
+      <label class="control-label" for="image">邮箱地址：</label>
+      <span><%= "meiya@meiya.me" %></span>
+    </div>
+
+    <div class="control-group artist-info">
+      <label class="control-label" for="image">*地区：</label>
+      <span><%= "上海市，上海市，闵行区" %></span>
+    </div>
+
+    <div class="control-group artist-info">
+      <label class="control-label" for="image">*详细地址：</label>
+      <span><%= "上海市闵行区xxx路xxx号" %></span>
+    </div>
+
+    <div class="control-group artist-info">
+      <label class="control-label" for="image">*生日：</label>
+      <span><%= "1987年3月24日" %></span>
+    </div>
+
+    <div class="control-group artist-info">
+      <label class="control-label" for="image">介绍：</label>
+      <span><%= "专业化妆师，欢迎朋友们联系我。" %></span>
+    </div>
+
+    <div class="control-group artist-info">
+      <label class="control-label" for="image">我的二维码：</label>
+      <div class="controls">
+        <% if @qrcode_url %>
+          <%= image_tag(@qrcode_url, alt: '二维码', width: '130', height: '130') %>
+        <% end %>
+        <button class="btn btn-success qrcode-button">生成</button>
+      </div>
+    </div>
+
+    <br />
+    <%= link_to '修改', edit_artist_path(@artist_id), class: 'btn btn-primary' %>
 <% end %>
 
 <script type="text/javascript" src="/assets/cropper/cropper.js"></script>
