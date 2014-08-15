@@ -3,10 +3,49 @@
 <h2 id="glyphicons-glyphs">个人资料</h2>
 
 <% if @artist_id %>
-    <p>
-      <b>化妆师 ID:</b>
-      <%= @artist_id %>
-    </p>
+
+    <div class="control-group">
+      <label class="control-label" for="image">化妆师 ID：</label>
+      <div class="controls">
+        <%= @artist_id %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="image">*昵称：</label>
+      <div class="controls">
+        <%= "Linda妞" %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="image">*性别：</label>
+      <div class="controls">
+        <%= "女" %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="image">*联系电话：</label>
+      <div class="controls">
+        <%= "15026612137" %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="image">邮箱地址：</label>
+      <div class="controls">
+        <%= "meiya@meiya.me" %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="image">*地区：</label>
+      <div class="controls">
+        <%= "上海市，上海市，闵行区" %>
+      </div>
+    </div>
+
 
     <div class="control-group">
       <div class="controls">
